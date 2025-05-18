@@ -16,24 +16,20 @@ docker-compose up -d
 # コンテナ名を調べる
 docker ps
 # コンテナ名を指定して内部に入る
-docker exec -it rails8-docker-web-1 bash
+docker exec -it rails8-tutorial-web-1 bash
 ```
 
 [Rails入門](https://guides.rubyonrails.org/getting_started.html#adding-authentication)
 
 コンテナ内部で作成する。
 ```shell
-# Railsアプリケーションを新規作成
-cd /rails
-
-# /railsがなかったのでこちらからでも良さそう。
 # コンテナ内で
 bundle install
 # create project
-rails new myapp --force --database=postgresql
+rails new store --force --database=postgresql
 
 # myappへ移動して実行する。
-cd myapp
+cd store
 # データベース作成
 rails db:create
 
@@ -43,8 +39,3 @@ rails s -b 0.0.0.0
 # コンテナ内部から抜ける
 exit
 ```
-
-コンテナ作成に成功すると表示されるはずです。
-
-<img src="screen-shot/created.png" />
-<img src="screen-shot/rails-s.png" />
